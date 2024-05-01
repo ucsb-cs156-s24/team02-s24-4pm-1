@@ -134,7 +134,7 @@ public class ArticlesControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform( //Im not sure if below is right
-                                post("/api/articles/post?title=firstDayOfClasses&url=20222&explantion=explanationExampl&email=luismiguel@ucsb.edu&dateAdded=2022-01-03T00:00:00")
+                                post("/api/articles/post?title=firstDayOfClasses&url=20222&explanation=explanationExample&email=luismiguel@ucsb.edu&dateAdded=2022-01-03T00:00:00")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 
@@ -233,7 +233,7 @@ public class ArticlesControllerTests extends ControllerTestCase {
                 verify(articlesRepository, times(1)).delete(any());
 
                 Map<String, Object> json = responseToJson(response);
-                assertEquals("Articles with id 15 deleted", json.get("message"));
+                assertEquals("Article with id 15 deleted", json.get("message"));
         }
         
         @WithMockUser(roles = { "ADMIN", "USER" })
