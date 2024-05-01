@@ -275,10 +275,10 @@ public class ArticlesControllerTests extends ControllerTestCase {
                                 .build();
 
                 Articles articlesEdited = Articles.builder()
-                                .title("firstDayOfClasses")
-                                .url("20222")
-                                .explanation("explanation example")
-                                .email("luismiguel@ucsb.edu")
+                                .title("firstDayOfSummer")
+                                .url("20232")
+                                .explanation("explanation example2")
+                                .email("luismiguel10@ucsb.edu")
                                 .dateAdded(ldt2)
                                 .build();
 
