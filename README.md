@@ -1,8 +1,13 @@
-# STARTER-team02
+# team02-s24-4pm-1
 
 Instructions: <https://ucsb-cs156.github.io/s24/lab/team02.html>
 
-TODO: change heading above to your repo name, e.g. `# team02-s24-6pm-4`
+Eric: Menu Item Reviews
+Aiden: Help Requests
+Luis: Articles
+Ruizhe: UCSB Dining Commons Menu Items
+Monica: Recommendation Requests
+Frank: UCSB Organizations
 
 TODO: Add a link to the deployed Dokku app for your team here, e.g.
 
