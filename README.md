@@ -2,6 +2,16 @@
 
 Instructions: <https://ucsb-cs156.github.io/s24/lab/team02.html>
 
+
+| Table                       | Team Member  | Github Id          |
+|-----------------------------|--------------|--------------------|
+| `UCSBDiningCommonsMenuItem` | Ruizhe J.  | RuizheJiang          |
+| `UCSBOrganization`          | Frank Z    | Frank404NotFound     |
+| `RecommendationRequest`     | Monica T   | monicatrinh1         |
+| `MenuItemReview`            | Eric N     | ericknee             |
+| `HelpRequest`               | Aiden P    | phamaiden            |
+| `Articles`                  | Luis M     | miguel-luis9         |
+
 Eric: Menu Item Reviews
 Aiden: Help Requests
 Luis: Articles
