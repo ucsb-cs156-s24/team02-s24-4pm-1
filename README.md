@@ -16,8 +16,8 @@ http://team02-s24-4pm-1.dokku-01.cs.ucsb.edu
 
 Deployments:
 
-* Prod: <https://team02.dokku-01.cs.ucsb.edu>
-* QA: <https://team02-qa.dokku-01.cs.ucsb.edu>
+* Prod: https://team02-prod.dokku-01.cs.ucsb.edu
+* QA: https://team02-qa.dokku-01.cs.ucsb.edu
 
 # Setup before running application
 
