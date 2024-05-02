@@ -1,23 +1,15 @@
 # team02-s24-4pm-1
 
-Instructions: <https://ucsb-cs156.github.io/s24/lab/team02.html>
-
-
-| Table                       | Team Member  | Github Id          |
-|-----------------------------|--------------|--------------------|
-| `UCSBDiningCommonsMenuItem` | Ruizhe J.  | RuizheJiang          |
-| `UCSBOrganization`          | Frank Z    | Frank404NotFound     |
-| `RecommendationRequest`     | Monica T   | monicatrinh1         |
-| `MenuItemReview`            | Eric N     | ericknee             |
-| `HelpRequest`               | Aiden P    | phamaiden            |
-| `Articles`                  | Luis M     | miguel-luis9         |
-
-Eric: Menu Item Reviews
-Aiden: Help Requests
-Luis: Articles
-Ruizhe: UCSB Dining Commons Menu Items
-Monica: Recommendation Requests
-Frank: UCSB Organizations
+```
+| Table                       | Team Member  | Github Id       |
+|-----------------------------|--------------|-----------------|
+| `UCSBDiningCommonsMenuItem` | Ruizhe       | RuizheJiang     |
+| `UCSBOrganization`          | Frank        | Frank404NotFound|
+| `RecommendationRequest`     | Monica       | monicatrinh1    |
+| `MenuItemReview`            | Eric         | ericknee        |
+| `HelpRequest`               | Aiden        | phamaiden       |
+| `Articles`                  | Luis         | miguel-luis9    |
+```
 
 TODO: Add a link to the deployed Dokku app for your team here, e.g.
 
