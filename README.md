@@ -11,7 +11,7 @@
 | `Articles`                  | Luis         | miguel-luis9    |
 
 
-TODO: Add a link to the deployed Dokku app for your team here, e.g.
+
 http://team02-s24-4pm-1.dokku-01.cs.ucsb.edu
 
 Deployments:
