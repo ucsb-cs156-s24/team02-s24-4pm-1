@@ -9,6 +9,8 @@ import edu.ucsb.cs156.example.repositories.HelpRequestRepository;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+
+import org.hibernate.graph.internal.parse.HEGLTokenTypes;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -204,4 +206,89 @@ public class HelpRequestControllerTests extends ControllerTestCase {
              assertEquals("EntityNotFoundException", json.get("type"));
              assertEquals("HelpRequest with id 639361 not found", json.get("message"));
      }
+
+        // Tests for PUT /api/ucsbdates?id=... 
+
+        @WithMockUser(roles = { "ADMIN", "USER" })
+        @Test
+        public void admin_can_edit_an_existing_helprequest() throws Exception {
+                // arrange
+
+                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
+                LocalDateTime ldt2 = LocalDateTime.parse("2023-01-03T00:00:00");
+
+                HelpRequest helpRequestOrig = HelpRequest.builder()
+                                .requesterEmail("aidenpham@ucsb.edu")
+                                .teamId("s24-4pm-1")
+                                .tableOrBreakoutRoom("1")
+                                .requestTime(ldt1)
+                                .explanation("Need help with Swagger-ui")
+                                .solved(false)
+                                .build();
+
+                HelpRequest helpRequestEdited = HelpRequest.builder()
+                                .requesterEmail("cgauchooo@ucsb.edu")
+                                .teamId("s24-5pm-3")
+                                .tableOrBreakoutRoom("11")
+                                .requestTime(ldt2)
+                                .explanation("Need more help with Swagger-ui")
+                                .solved(true)
+                                .build();
+
+                String requestBody = mapper.writeValueAsString(helpRequestEdited);
+
+                when(helpRequestRepository.findById(eq(67L))).thenReturn(Optional.of(helpRequestOrig));
+
+                // act
+                MvcResult response = mockMvc.perform(
+                                put("/api/helprequest?id=67")
+                                                .contentType(MediaType.APPLICATION_JSON)
+                                                .characterEncoding("utf-8")
+                                                .content(requestBody)
+                                                .with(csrf()))
+                                .andExpect(status().isOk()).andReturn();
+
+                // assert
+                verify(helpRequestRepository, times(1)).findById(67L);
+                verify(helpRequestRepository, times(1)).save(helpRequestEdited); // should be saved with correct user
+                String responseString = response.getResponse().getContentAsString();
+                assertEquals(requestBody, responseString);
+        }
+
+        
+        @WithMockUser(roles = { "ADMIN", "USER" })
+        @Test
+        public void admin_cannot_edit_helprequest_that_does_not_exist() throws Exception {
+                // arrange
+
+                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
+
+                HelpRequest editedHelpRequest = HelpRequest.builder()
+                                .requesterEmail("cgaucho@ucsb.edu")
+                                .teamId("s24-4pm-1")
+                                .tableOrBreakoutRoom("1")
+                                .requestTime(ldt1)
+                                .explanation("Need help with Swagger-ui")
+                                .solved(true)
+                                .build();
+
+                String requestBody = mapper.writeValueAsString(editedHelpRequest);
+
+                when(helpRequestRepository.findById(eq(67L))).thenReturn(Optional.empty());
+
+                // act
+                MvcResult response = mockMvc.perform(
+                                put("/api/helprequest?id=67")
+                                                .contentType(MediaType.APPLICATION_JSON)
+                                                .characterEncoding("utf-8")
+                                                .content(requestBody)
+                                                .with(csrf()))
+                                .andExpect(status().isNotFound()).andReturn();
+
+                // assert
+                verify(helpRequestRepository, times(1)).findById(67L);
+                Map<String, Object> json = responseToJson(response);
+                assertEquals("HelpRequest with id 67 not found", json.get("message"));
+
+        }
 }
