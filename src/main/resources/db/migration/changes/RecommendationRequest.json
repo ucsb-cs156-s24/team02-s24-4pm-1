@@ -3,7 +3,7 @@
       {
         "changeSet": {
           "id": "RecommendationRequest-1",
-          "author": "EmilyT",
+          "author": "MonicaT",
           "preConditions": [
             {
               "onFail": "MARK_RAN"
@@ -27,7 +27,7 @@
                       "autoIncrement": true,
                       "constraints": {
                         "primaryKey": true,
-                        "primaryKeyName": "CONSTRAINT_1"
+                        "primaryKeyName": "CONSTRAINT_9"
                       },
                       "name": "ID",
                       "type": "BIGINT"
